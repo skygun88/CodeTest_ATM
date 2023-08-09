@@ -26,23 +26,42 @@ class ATM:
             return True
         else:
             return False
-        
+    
+    # End the ATM service of current user
     def end_service(self):
         self.curr_account = None
 
+    # Check whether current PIN is valide or not
     def check_pin(self, pin: str):
         return True if self.db.get(pin, None) != None else False
             
-            
+    # Get the balance of the current user
     def balance(self):
         return self.db[self.curr_account]
 
+    # Deposit the desired value
     def deposit(self, value: int):
-        pass
-
-    def withdraw(self, value: int):
-        pass
+        balance = self.balance()
+        new_balance = balance + value
+        self.update_balance(new_balance)
+        return True, new_balance
     
+    # Withdraw the desired value
+    def withdraw(self, value: int):
+        balance = self.balance()
+        if value > balance:
+            return False, -1
+        else:
+            new_balance = balance - value
+            self.update_balance(new_balance)
+            return True, new_balance
+    
+    # Update current user's balance
+    def update_balance(self, new_balance: int):
+        self.db[self.curr_account] = new_balance
+        self.update_db(self.db_path, self.db)
+    
+    # Update DB in both memory and file
     def update_db(self, db_path: str, db: Dict[str, int]):
         with open(db_path, "w") as f:
             json.dump(db, f, indent=4)
@@ -55,6 +74,3 @@ class ATM:
             f.close()
         return db
     
-    
-if __name__ == "__main__":
-    atm = ATM()

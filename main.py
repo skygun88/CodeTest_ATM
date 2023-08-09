@@ -16,5 +16,13 @@ if __name__ == "__main__":
     if atm.insert_card(card):
         print(atm.curr_account)
         print(atm.balance())
+        succ, new_balance = atm.deposit(500)
+        if succ:
+            print('deposit', new_balance, atm.balance())
+            succ, new_balance = atm.withdraw(500)
+            if succ:
+                print('withdraw', new_balance, atm.balance())
+        atm.end_service()
+            
     else:
         print('No account for the card')
