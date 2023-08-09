@@ -1,0 +1,18 @@
+Enter the PIN of your card
+geonkim
+Choose a service (balance/deposit/withdraw/end)
+balance
+Balance - 2000
+Choose a service (balance/deposit/withdraw/end)
+deposit
+Enter the value you want to deposit
+1500
+Deposit - 3500
+Choose a service (balance/deposit/withdraw/end)
+withdraw
+Enter the value you want to withdraw
+4500
+Withdraw - not enough balance
+Choose a service (balance/deposit/withdraw/end)
+end
+Service is ended

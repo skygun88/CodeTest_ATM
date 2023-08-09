@@ -15,20 +15,27 @@
 pip install -r requirement.txt
 ```
 
-## Explanation
-
-
 ## Testcase
-1. Case01 - Check whether our ATM detect the card which has invalid PIN
-2. Case02 - Check whether our ATM show the balance of current user
-3. Case03
-4. Case04
-5. Case05
-6. Case06
-7. Case07
-8. Case08
-9. Case09
-10. Case10
+### Case01 - Invalid PIN
+Check whether our ATM detects the card which has invalid PIN
+### Case02 - Balance (1)
+Check whether our ATM shows the balance of current user whose PIN is "bear230809"
+### Case03 - Balance (2)
+Check whether our ATM shows the balance of current user whose PIN is "codingtest777"
+### Case04 - Deposit (1)
+Check whether our ATM desposits \$500 on current user whose PIN is "robotics230809"
+### Case05 - Deposit (2)
+Check whether our ATM desposits successively \$1000 and \$500 on current user whose PIN is "geonkim"
+### Case06 - Withdraw (1)
+Check whether our ATM withdraws \$700 on current user whose PIN is "bear230809"
+### Case07 - Withdraw (2)
+Check whether our ATM prevents to withdraw the \$1100 on current user whose PIN is "bear230809"
+### Case08 - Withdraw (3)
+Check whether our ATM withdraws successively \$300, and \$1000 on current user whose PIN is "codingtest777"
+### Case09 - Combined (1)
+Check whether our ATM desposits \$500 and withdraws \$1400 on current user whose PIN is "robotics230809"
+### Case10 - Combined (2)
+Check whether our ATM desposits \$1500 and prevents to withdraw \$4500 on current user whose PIN is "geonkim"
 
 
 ## Run

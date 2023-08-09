@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+import time
 from subprocess import run
 from shutil import copyfile
 
@@ -26,12 +27,15 @@ def check_answer(answer_path: str, output_path: str, db_ans_path: str, db_out_pa
         f.close()
         
     if answer != output:
+        print('answer != output')
         correct = False
     elif len(db_ans.keys()) != len(db_out.keys()):
+        print('len error')
         correct = False
     else:
         for key in db_ans:
             if db_ans[key] != db_out[key]:
+                print('key error', key, db_ans[key], db_out[key])
                 correct = False
                 break
     return correct
@@ -41,19 +45,27 @@ def test(dir_path: str):
     input_path: str = os.path.join(dir_path, 'input.txt')
     output_path: str = os.path.join(dir_path, 'output.txt')
     answer_path: str = os.path.join(dir_path, 'answer.txt')
-    db_ori_path: str = os.path.join(dir_path, 'db_ori.json')
     db_ans_path: str = os.path.join(dir_path, 'db_ans.json')
-    db_out_path: str = os.path.join(ROOT_DIR_PATH, 'db.json')
+    db_out_path: str = os.path.join(dir_path, 'db_out.json')
+    db_ori_path: str = os.path.join(ROOT_DIR_PATH, 'db_ori.json')
+    db_path: str = os.path.join(ROOT_DIR_PATH, 'db.json')
     
-    copyfile(db_ori_path, db_out_path)
+    
+    copyfile(db_ori_path, db_path)
     with open(input_path, 'r') as f:
         input_data = f.read().encode()
         f.close()
     output_file = open(output_path, 'w')
     run(['python', 'main.py'], input=input_data, stdout=output_file)
     output_file.close()
+    time.sleep(0.1)
+    copyfile(db_path, db_out_path)
+    time.sleep(0.1)
+    passed = check_answer(answer_path, output_path, db_ans_path, db_out_path)
+    time.sleep(0.1)
+    os.remove(db_path)
     
-    return check_answer(answer_path, output_path, db_ans_path, db_ori_path)
+    return passed
     
     
 
@@ -64,16 +76,7 @@ if __name__ == "__main__":
     for idx, testcase in enumerate(testcases):
         testcase_path = os.path.join(test_dir, testcase)
         
-        
         if test(testcase_path):
-            print(f'[{testcase}] Pass')
+            print(f'[Test{testcase}] Pass')
         else:
-            print(f'[{testcase}] Fail')
-        if idx == 1:
-            break
-    
-    
-
-    
-    
-    
+            print(f'[Test{testcase}] Fail')

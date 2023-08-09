@@ -1,0 +1,18 @@
+Enter the PIN of your card
+codingtest777
+Choose a service (balance/deposit/withdraw/end)
+balance
+Balance - 3000
+Choose a service (balance/deposit/withdraw/end)
+withdraw
+Enter the value you want to withdraw
+300
+Withdraw - 2700
+Choose a service (balance/deposit/withdraw/end)
+withdraw
+Enter the value you want to withdraw
+1000
+Withdraw - 1700
+Choose a service (balance/deposit/withdraw/end)
+end
+Service is ended

@@ -1,3 +1,4 @@
 *.pyc
 output.txt
 db.json
+db_out.json

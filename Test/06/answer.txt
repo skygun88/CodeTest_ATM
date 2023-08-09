@@ -1,0 +1,13 @@
+Enter the PIN of your card
+bear230809
+Choose a service (balance/deposit/withdraw/end)
+balance
+Balance - 1000
+Choose a service (balance/deposit/withdraw/end)
+withdraw
+Enter the value you want to withdraw
+700
+Withdraw - 300
+Choose a service (balance/deposit/withdraw/end)
+end
+Service is ended

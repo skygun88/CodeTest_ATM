@@ -1,0 +1,7 @@
+codingtest777
+balance
+withdraw
+300
+withdraw
+1000
+end

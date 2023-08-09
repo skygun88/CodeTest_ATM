@@ -1,0 +1,13 @@
+Enter the PIN of your card
+robotics230809
+Choose a service (balance/deposit/withdraw/end)
+balance
+Balance - 1500
+Choose a service (balance/deposit/withdraw/end)
+deposit
+Enter the value you want to deposit
+500
+Deposit - 2000
+Choose a service (balance/deposit/withdraw/end)
+end
+Service is ended

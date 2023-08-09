@@ -1,0 +1,7 @@
+geonkim
+balance
+deposit
+1000
+deposit
+500
+end
