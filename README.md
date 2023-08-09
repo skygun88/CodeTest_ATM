@@ -6,15 +6,27 @@
 * Python 3.8
 
 ### Library
-* shutil
 * typing
-* json
 
 ### Package install
 ```bash
-pip install -r requirement.txt
+pip install -r requirements.txt
 ```
 
+## Files
+* `ATM.py`: Implementation of ATM controller class
+* `Card.py`: Implementation of Card class
+* `db_ori.json`: Json style test Banck DB which contains PIN, balance
+* `main.py`: Main loop to control ATM
+* `evaluate.py`: Code to test our ATM controller implemenation based on 10 testcases
+* `remove_output.py`: Code to remove dummy output files in `Test` directory
+* `Test`: Directory which contains 10 testcases
+    * `Test/{case_num}/input.txt`: Text file contains STDIN of the testcase
+    * `Test/{case_num}/answer.txt`: Text file contains desired STOUT of the testcase
+    * `Test/{case_num}/db_ans.txt`: Json file contains desired result db file of the testcase
+    * `Test/{case_num}/output.txt`: Text file contains STOUT of the testcase (will be generated after executing test code)
+    * `Test/{case_num}/db_out.txt`: Json file contains actual result db file of the testcase(will be generated after executing test code)
+    
 ## Testcase
 ### Case01 - Invalid PIN
 Check whether our ATM detects the card which has invalid PIN
@@ -37,8 +49,7 @@ Check whether our ATM desposits \$500 and withdraws \$1400 on current user whose
 ### Case10 - Combined (2)
 Check whether our ATM desposits \$1500 and prevents to withdraw \$4500 on current user whose PIN is "geonkim"
 
-
-## Run
+## Run the test code
 ```bash
 python evaluate.py
 ```
