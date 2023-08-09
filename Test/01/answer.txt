@@ -1,0 +1,3 @@
+Enter the PIN of your card
+bear23080
+Invalid card

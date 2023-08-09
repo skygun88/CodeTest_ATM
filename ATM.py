@@ -1,26 +1,25 @@
+'''
+ATM.py - Code for ATM class
+'''
 import os
 import sys
 import json
-from typing import List, Dict
+from typing import Dict
 
 ROOT_DIR_PATH = os.path.dirname(os.path.abspath(__file__))
-
 sys.path.append(ROOT_DIR_PATH)
 from Card import Card
 
 class ATM:
-    def __init__(self):
-        self.db_path: str = os.path.join(ROOT_DIR_PATH, 'db.json')
+    def __init__(self, db_path: str):
+        self.db_path: str = db_path
         self.db: Dict[str, int]  = self.read_db(self.db_path)
-        for user in self.db:
-            print(user, self.db[user])
-        print()
             
         self.curr_account = None
     
     # Insert credit card and check whether PIN is valid or not
     def insert_card(self, card: Card):
-        pin = card.get_pin()
+        pin: str = card.get_pin()
         if self.check_pin(pin):
             self.curr_account = pin
             return True
@@ -41,18 +40,18 @@ class ATM:
 
     # Deposit the desired value
     def deposit(self, value: int):
-        balance = self.balance()
-        new_balance = balance + value
+        balance: int = self.balance()
+        new_balance: int = balance + value
         self.update_balance(new_balance)
         return True, new_balance
     
     # Withdraw the desired value
     def withdraw(self, value: int):
-        balance = self.balance()
+        balance: int = self.balance()
         if value > balance:
             return False, -1
         else:
-            new_balance = balance - value
+            new_balance: int = balance - value
             self.update_balance(new_balance)
             return True, new_balance
     
